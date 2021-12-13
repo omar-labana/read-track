@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import img from "../assets/hero-illustration.svg";
 const Hero = () => {
   return (
-    <header className="flex justify-between bg-browny max-w-5xl mx-auto rounded-3xl my-20 p-10 ">
+    <header className="flex justify-between bg-browny max-w-5xl mx-auto rounded-3xl mt-20 p-10">
       <div className="flex flex-col justify-between">
         <div>
           <h1 className="text-browny-dark text-6xl font-bold">Read Tracer</h1>

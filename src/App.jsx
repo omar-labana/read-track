@@ -1,6 +1,4 @@
-import * as BooksAPI from "./services";
 import Book from "./components/Book";
-import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./views/Home";
 const App = () => {
