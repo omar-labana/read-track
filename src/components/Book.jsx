@@ -1,8 +1,7 @@
 import { Menu } from "@headlessui/react";
 import arrow from "../assets/arrow.svg";
 
-const Book = ({ book }) => {
-  console.log(book);
+const Book = ({ book, handleClick }) => {
   const { title, subtitle, imageLinks, shelf } = book;
   return (
     <li className="relative flex flex-col items-center justify-center gap-3 w-56 text-left flex-auto">
@@ -16,7 +15,7 @@ const Book = ({ book }) => {
             <img
               src={arrow}
               alt="123"
-              className="p-3 bg-browny rounded-full drop-shadow-2xl w-14 border-4 border-browny-dark"
+              className=" bg-browny rounded-full drop-shadow-2xl w-14 border-4 border-browny-dark"
             />
           </Menu.Button>
           <Menu.Items className="absolute bg-browny-dark p-5 rounded-lg w-72 flex flex-col gap-3 items-start z-10 text-white">
@@ -26,6 +25,7 @@ const Book = ({ book }) => {
 
             <Menu.Item>
               <button
+                onClick={() => handleClick(book, "currentlyReading")}
                 type="button"
                 className={
                   shelf === "currentlyReading" ? "italic font-bold" : ""
@@ -37,6 +37,7 @@ const Book = ({ book }) => {
 
             <Menu.Item>
               <button
+                onClick={() => handleClick(book, "wantToRead")}
                 type="button"
                 className={shelf === "wantToRead" ? "italic font-bold" : ""}
               >
@@ -46,15 +47,17 @@ const Book = ({ book }) => {
 
             <Menu.Item>
               <button
+                onClick={() => handleClick(book, "read")}
                 type="button"
                 className={shelf === "read" ? "italic font-bold" : ""}
               >
-                Read {shelf === "read" ? "✓" : ""}
+                Finished Reading {shelf === "read" ? "✓" : ""}
               </button>
             </Menu.Item>
 
             <Menu.Item>
               <button
+                onClick={() => handleClick(book, "none")}
                 type="button"
                 className={shelf === "none" ? "italic font-bold" : ""}
               >
