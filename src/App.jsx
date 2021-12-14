@@ -1,25 +1,26 @@
-import Book from "./components/Book";
 import { Routes, Route } from "react-router-dom";
 import Home from "./views/Home";
-const App = () => {
-  // const [books, setBooks] = useState([]);
-  // const [query, setQuery] = useState("android");
-  // useEffect(() => {
-  //   BooksAPI.search(query)
-  //     .then((books) => {
-  //       setBooks(books);
-  //       // console.log(books, query);
-  //     })
-  //     .catch((err) => {
-  //       setBooks([]);
-  //       console.log(err);
-  //     });
-  // }, [query]);
+import Search from "./views/Search";
+import * as BooksAPI from "./services";
 
+const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home getAll={BooksAPI.getAll} update={BooksAPI.update} />}
+        />
+        <Route
+          path="/search"
+          element={
+            <Search
+              search={BooksAPI.search}
+              update={BooksAPI.update}
+              getAll={BooksAPI.getAll}
+            />
+          }
+        />
       </Routes>
     </>
   );

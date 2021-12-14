@@ -5,11 +5,10 @@ import Whishlist from "../components/Whishlist";
 import Shelf from "../components/Shelf";
 import add from "../assets/add.svg";
 
-import * as BooksAPI from "../services";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const Home = ({ getAll, update }) => {
   const [books, setBooks] = useState({
     currentlyReading: [],
     wantToRead: [],
@@ -18,7 +17,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   useEffect(() => {
-    BooksAPI.getAll()
+    getAll()
       .then((books) => {
         setLoading(true);
         const reading = books.filter(
@@ -39,7 +38,7 @@ const Home = () => {
       });
   }, []);
   const handleClick = (book, shelf) => {
-    BooksAPI.update(book, shelf)
+    update(book, shelf)
       .then(() => {
         if (shelf !== "none") {
           setBooks((previousBooks) => {
@@ -101,7 +100,7 @@ const Home = () => {
         to="/search"
         className="fixed p-3 bottom-10 right-10  text-browny bg-browny-dark rounded-full"
       >
-        <img src={add} alt="add" className="w-10"/>
+        <img src={add} alt="add" className="w-10" />
       </Link>
     </>
   );
