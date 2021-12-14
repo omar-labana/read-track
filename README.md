@@ -52,7 +52,6 @@
 <img src="docs/screenshot2.png" alt="Logo" width="450">
 </span>
 
-Hey there, this is my portfolio project where I showcase my work and the type of projects I build.
 
 Here's what you can find:
 
