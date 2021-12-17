@@ -2,9 +2,10 @@ import { Menu } from "@headlessui/react";
 import arrow from "../assets/arrow.svg";
 
 const Book = ({ book, handleClick }) => {
-  const { title, subtitle, imageLinks, shelf } = book;
+  const { title, authors, imageLinks, shelf } = book;
+    const authorTag = authors.length > 1 ? authors.join(", ") : authors[0];
   return (
-    <li className="relative flex flex-col items-center justify-center gap-3 w-56 text-left flex-auto">
+    <li className="relative flex flex-col items-center justify-center gap-3 w-56 text-left flex-auto my-4">
       <span className="relative">
         <div
           className="bg-cover bg-center bg-no-repeat w-56 h-72"
@@ -67,7 +68,10 @@ const Book = ({ book, handleClick }) => {
           </Menu.Items>
         </Menu>
       </span>
-      <h2 className="truncate w-56">{title}</h2>
+      <div className="flex flex-col">
+        <h2 className="truncate w-56">{title}</h2>
+        <p className="w-56">{authorTag}</p>
+      </div>
     </li>
   );
 };
