@@ -48,7 +48,6 @@ const Home = ({ getAll, update }) => {
             );
             book.shelf = shelf;
             const updatedNewShelf = [...books[shelf], book];
-            console.log(books[shelf]);
             return {
               ...previousBooks,
               [oldShelf]: updatedOldShelf,
