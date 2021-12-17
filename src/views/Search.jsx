@@ -21,7 +21,7 @@ const Search = ({ search, update, getAll }) => {
               books.map((b) => {
                 const index = ids.findIndex((e) => e.id === b.id);
                 if (index >= 0) {
-                  b.shelf = ids[ids.findIndex((e) => (e.id = b.id))].shelf;
+                  b.shelf = ids[ids.findIndex((e) => (e.id === b.id))].shelf;
                 } else {
                   b.shelf = "none";
                 }
