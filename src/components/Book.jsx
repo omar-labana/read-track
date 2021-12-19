@@ -3,7 +3,6 @@ import arrow from "../assets/arrow.svg";
 
 const Book = ({ book, handleClick }) => {
   const { title, imageLinks, shelf, authors } = book;
-  console.log(imageLinks);
   let authorsTag, thumbnail;
   if (authors) {
     authorsTag = authors.length > 1 ? authors.join(", ") : authors[0];
